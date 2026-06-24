@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css"> 
+    <title>To do List</title>
+</head>
+<body>
+
+    <div class="conatiner">
+        <h1>To-do List</h1>
+        <div class="displays">
+            <input type="text" id="Input" class="Items">
+            <button onclick="addElements()" class="AddBtn">Add</button>
+        </div>
+    <ul id="elementConatiner" class="Tasks" >
+
+    </ul>
+    </div>
+</body>
+<script>
+    function addElements() {
+        if (document.getElementById("Input").value.trim() === "") {
+        return;
+    }
+    let container = document.getElementById("elementConatiner");
+
+    let element = document.createElement("li");
+    element.classList.add("li");
+
+    let inputElement = document.createElement("input");
+    inputElement.classList.add("CheckBox");
+    inputElement.type = "checkbox";
+    inputElement.id="Mycheckbox";
+
+    let label = document.createElement("label");
+    label.htmlFor="Mycheckbox";
+    label.classList.add("label");
+    label.textContent = document.getElementById("Input").value;
+
+    let editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+    editBtn.classList.add("editBtn");
+
+    let deleteBtn = document.createElement("button");
+    deleteBtn.innerHTML = '<i class="bi bi-trash-fill"></i>';
+   // deleteBtn.textContent = "Delete";
+   deleteBtn.classList.add("deleteBtn")
+    element.appendChild(inputElement);
+    element.appendChild(label);
+    element.appendChild(deleteBtn);
+    element.appendChild(editBtn)
+    container.appendChild(element);
+
+    editBtn.onclick= function(){
+        let newList=prompt("Enter new Task");
+    if (newList !== null && newList.trim() !== "") {
+    label.textContent = newList;
+    }
+    }
+    deleteBtn.onclick = function () {
+    element.remove();
+};
+
+    document.getElementById("Input").value = "";
+}
+</script>
+</html>
