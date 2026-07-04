@@ -16,7 +16,7 @@ A simple and responsive **To-Do List** web application built using **HTML, CSS, 
 
 - HTML5
 - CSS3
-- JavaScript (Vanilla JS)
+- JavaScript 
 - Bootstrap Icons
 
 ## 📁 Project Structure
